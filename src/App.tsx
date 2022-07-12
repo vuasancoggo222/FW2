@@ -13,6 +13,7 @@ function App() {
 }
 const Wrapper  = styled.div`
 max-width:1777px;
+margin:0 auto;
 font-family : Roboto,sans-serif;
 background-color: #E5E5E5;
 `
