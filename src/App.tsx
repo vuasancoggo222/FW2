@@ -13,5 +13,7 @@ function App() {
 }
 const Wrapper  = styled.div`
 max-width:1777px;
+font-family : Roboto,sans-serif;
+background-color: #E5E5E5;
 `
 export default App
