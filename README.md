@@ -4,5 +4,7 @@
 * React and Vite
 * Node JS with Express
 * MongoDB with Mongoose
-`yarn`
-`yarn dev`
+
+ `yarn`
+
+ `yarn dev`
