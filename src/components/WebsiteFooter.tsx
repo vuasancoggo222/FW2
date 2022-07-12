@@ -144,5 +144,7 @@ const PaymentMethodLogo = styled.img`
 margin-left :10px;
 margin-top:10px;
 `
-const DienThoaiVuiImg = styled.img``
+const DienThoaiVuiImg = styled.img`
+margin-bottom : 59px
+`
 export default WebsiteFooter
