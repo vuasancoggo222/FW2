@@ -18,7 +18,9 @@ const InputStyle: React.CSSProperties ={
   height : '34px',
   margin: 'auto 0',
   lineHeight: '57px',
-  marginRight:'47px'
+  marginRight:'47px',
+  borderRadius :" 6px",
+  border: 'none'
 }
 const WebsiteHeader = (props: Props) => {
   return (
