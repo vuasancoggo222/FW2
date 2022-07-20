@@ -1,11 +1,12 @@
 import { Input } from 'antd'
-import { Header } from 'antd/lib/layout/layout'
+
 import React from 'react'
 import styled from 'styled-components'
 import LogoWebSite from '../assets/anhhtus-logo 2.png'
 import LookUpImage from '../assets/lookup.png'
 import Tracking from '../assets/tracking.png'
 import CartImage from '../assets/cart.png'
+import { Header } from 'antd/lib/layout/layout'
 type Props = {}
 const HeaderStyle: React.CSSProperties = {
   backgroundColor : '#D70018',

@@ -1,4 +1,4 @@
-import { Footer } from 'antd/lib/layout/layout'
+
 import React from 'react'
 import styled from 'styled-components'
 import DienThoaiVuiImage from '../assets/dienthoaivui.png'
@@ -7,6 +7,7 @@ import MocaLogo from '../assets/mocalogo.png'
 import RedivoLogo from '../assets/redivologo.png'
 import VnPayLogo from '../assets/vnpay.png'
 import VpBankLogo from '../assets/vpbank.png'
+import { Footer } from 'antd/lib/layout/layout'
 type Props = {}
 const FooterStyle: React.CSSProperties = {
   padding: '0',
