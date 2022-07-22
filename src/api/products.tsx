@@ -17,3 +17,7 @@ export const updateProduct = (data:any,id:any) => {
     const url = `/products/${id}`
     return instance.put(url, data)
 }
+export const changeStatus = (id :any,data:any)=>{
+    const url = `products/${id}`
+    return instance.patch(url,data)
+}

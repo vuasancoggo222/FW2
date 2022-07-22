@@ -12,8 +12,10 @@ import ProductEdit from "./pages/ProductEdit";
 import { CategoryType } from "./types";
 import { categoryList } from "./api/category";
 import ProductAdmin from "./pages/ProductAdmin";
+import { getAll, read, updateProduct } from "./api/products";
 function App() {
   const [categories, setCategories] = useState<CategoryType[]>([]);
+  const [products, setProducts] = useState([]);
   useEffect(() => {
     const getCategories = async () => {
       try {

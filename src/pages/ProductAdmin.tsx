@@ -4,8 +4,8 @@ import { Typography, Button, Table, Space } from 'antd';
 import { Link } from 'react-router-dom'
 import { SearchOutlined, PlusOutlined } from '@ant-design/icons';
 import type { ColumnsType } from 'antd/es/table';
-import { getAll } from "../api/products";
-// import { useQuery } from 'react-query'
+import { getAll,changeStatus, read, updateProduct } from "../api/products";
+
 const { Paragraph } = Typography
 
 interface DataType {
@@ -16,41 +16,30 @@ interface DataType {
     id : string | number
 }
 
-const columns: ColumnsType<DataType> = [
-    {
-        title: 'Tên sản phẩm',
-        dataIndex: 'name',
-        key: 'name',
-        render: text => <a>{text}</a>,
-    },
-    {
-        title: 'Đặc điểm',
-        dataIndex: 'feature',
-        key: 'feature',
-        render: text => <a>{text}</a>,
-    },
-    {
-        title: 'Giá khuyến mãi',
-        dataIndex: 'saleOffPrice',
-        key: 'saleOffPrice',
-    },
-    {
-        title: 'Mô tả',
-        dataIndex: 'description',
-        key: 'description',
-    },
-    {
-        title: 'Chức năng',
-        dataIndex: 'id',
-        key : 'id',
-        render: id => <Button type="primary"><Link to={`product/edit/${id}`}>Edit</Link></Button>
-          
-          ,
-    },
-];
-
 const ProductAdminPage = () => {
     const [dataTable, setDataTable] = useState([])
+    const onChangeStatus = async (id: any) => {
+        const {data} = await read(id)
+        let statusNew = 2;
+        if(data.status == 0) {
+            statusNew = 1
+        }else{
+            statusNew = 0
+        }
+        const dataUpdate = {...data, status: statusNew }
+    
+        await updateProduct(dataUpdate,id)
+        const dataNew = await getAll();
+        setDataTable(dataNew.data)
+      }
+    const setStatus = async () =>{
+        try {
+            
+        } catch (error) {
+            console.log(error);
+            
+        }
+    }
     useEffect(() => {        
         const getProducts = async()=>{
             try {
@@ -64,6 +53,48 @@ const ProductAdminPage = () => {
         getProducts()
     }, [])
 
+    const columns: ColumnsType<DataType> = [
+        {
+            title: 'Tên sản phẩm',
+            dataIndex: 'name',
+            key: 'name',
+            render: text => <a>{text}</a>,
+        },
+        {
+            title: 'Đặc điểm',
+            dataIndex: 'feature',
+            key: 'feature',
+            render: text => <a>{text}</a>,
+        },
+        {
+            title: 'Giá khuyến mãi',
+            dataIndex: 'saleOffPrice',
+            key: 'saleOffPrice',
+        },
+        {
+            title: 'Mô tả',
+            dataIndex: 'description',
+            key: 'description',
+        },
+        {
+            title: 'Trạng thái',
+            dataIndex: 'status',
+            key: 'status',
+            render: status => <span>{status ? "Hết hàng" : 'Còn Hàng'}</span>
+        },
+        {
+            title: 'Chức năng',
+            dataIndex: 'id',
+            key : 'id',
+            render: id => <Space>
+                <Button danger onClick={ async() => {
+                        onChangeStatus(id)
+                    }}  ><span>Change</span></Button>
+                <Button type="primary"><Link to={`product/edit/${id}`}>Edit</Link></Button>
+            </Space>
+              ,
+        },
+    ];
    
 
     return (
