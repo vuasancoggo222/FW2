@@ -13,7 +13,8 @@ const EditProduct = () => {
   const [form] = Form.useForm();
   const getProducts =  async () =>{
     const {data} = await read(id)
-    form.setFieldsValue(data);
+	console.log(data);
+    form.setFieldsValue(data)
 }
 getProducts()
   const [previewImage, setPreviewImage] = useState('')
@@ -39,7 +40,7 @@ getProducts()
     const reader = new FileReader()
     reader.readAsDataURL(file)
     reader.onloadend = () => {
-      setPreviewImage(reader.result)
+      setPreviewImage(reader.result())
     }
   }
 

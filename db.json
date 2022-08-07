@@ -1,28 +1,42 @@
 {
-  "users": [],
-  "cate": [
+  "users": [
     {
-      "id": "1",
-      "name": "Điện thoại"
+      "email": "levu9b@gmail.com",
+      "password": "$2a$10$vaoItgpUlxqYmjccfRD10.RVgUOC1z4la0a7P8FVeOVxDeyQQ/OgG",
+      "name": "Le Vu",
+      "address": "tuyen quang",
+      "id": 1
+    },
+    {
+      "email": "levu7b@gmail.com",
+      "password": "$2a$10$NnFpi9rcUigFIkpjki77y.qe5L9oZDEfZf6Tnj3If1/QsJjPd8wEu",
+      "name": "Le Xuan Duy",
+      "address": "tuyen quang",
+      "id": 2
+    }
+  ],
+  "cates": [
+    {
+      "name": "Smarphone",
+      "id": "1"
     },
     {
       "id": "2",
-      "name": "Laptop"
+      "name": "Laptop",
+      "status": 0
     },
     {
       "id": "3",
-      "name": "Máy tính bảng"
+      "name": "Máy tính bảng",
+      "status": 0
     },
     {
       "id": "4",
-      "name": "Âm thanh"
+      "name": "Âm thanh",
+      "status": 1
     }
   ],
   "products": [
-    {
-      "status": 1,
-      "id": 2
-    },
     {
       "name": "Apple iPhone 13 Pro Max",
       "originalPrice": 33990000,
@@ -30,7 +44,8 @@
       "categories": "tablet",
       "feature": "Màn hình Super Retina XDR 6.7 inch với ProMotion cho cảm giác nhanh nhạy hơn3\nChế độ Điện Ảnh làm tăng thêm độ sâu trường ảnh nông và tự động thay đổi tiêu cự trong video\nHệ thống camera chuyên nghiệp Telephoto, Wide và Ultra Wide 12MP; LiDAR Scanner; phạm vi thu phóng quang học 6x; chụp ảnh macro; Phong Cách Nhiếp Ảnh, video ProRes, HDR thông minh thế hệ 4, chế độ Ban Đêm, Apple ProRAW, khả năng quay video HDR Dolby Vision 4K",
       "description": "Cần có gói cước dữ liệu. Mạng 5G chỉ khả dụng ở một số thị trường và được cung cấp qua một số nhà mạng. Tốc độ có thể thay đổi tùy địa điểm và nhà mạng. Để biết thông tin về hỗ trợ mạng 5G, vui lòng liên hệ nhà mạng và truy cập apple.com/iphone/cellular.\n\n2Thời lượng pin khác nhau tùy theo cách sử dụng và cấu hình. Truy cập apple.com/batteries để biết thêm thông tin.\n\n",
-      "id": 3
+      "id": 3,
+      "cateId": "1"
     },
     {
       "name": "Le Vu Trong444",
@@ -40,7 +55,8 @@
       "feature": "fffffffffffffffffffffffffffffffffffff",
       "description": "ggggggggggggggggggggggggggg",
       "id": 4,
-      "status": 1
+      "status": 0,
+      "cateId": "1"
     },
     {
       "name": "Apple Watch Series 3 GPS Sport Band (Viền Nhôm, Dây Cao Su)",
@@ -49,7 +65,18 @@
       "feature": "Apple Watch Series 3 GPS Sport Band (Viền Nhôm, Dây Cao Su)",
       "description": "Apple Watch Series 3 GPS Sport Band (Viền Nhôm, Dây Cao Su)",
       "id": 5,
-      "status": 1
+      "status": 0,
+      "cateId": "3"
+    },
+    {
+      "name": "Apple Watch Series 3 GPS Sport Band (Viền Nhôm, Dây Cao Su)",
+      "originalPrice": 121212,
+      "saleOffPrice": 21213213,
+      "feature": "Apple Watch Series 3 GPS Sport Band (Viền Nhôm, Dây Cao Su)",
+      "description": "Apple Watch Series 3 GPS Sport Band (Viền Nhôm, Dây Cao Su)",
+      "id": 66,
+      "status": 0,
+      "cateId": "3"
     },
     {
       "name": "333333ffffff",
@@ -59,7 +86,30 @@
       "feature": "gggggggggggggggggggggggggggggg",
       "description": "g44444444444444444444444444",
       "id": 6,
-      "status": 1
+      "status": 1,
+      "cateId": "4"
+    },
+    {
+      "name": "Le Vu Trong",
+      "originalPrice": 33333,
+      "saleOffPrice": 22222,
+      "categories": "laptop",
+      "feature": "fffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff",
+      "description": "44444444444444444444444ffffffffffffffffffffffff",
+      "id": 7,
+      "status": 1,
+      "cateId": "2"
+    },
+    {
+      "name": "Le Vu Trong update",
+      "originalPrice": 77777,
+      "saleOffPrice": 55555,
+      "categories": "phone",
+      "feature": "jjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjj",
+      "description": "jjjjy",
+      "id": 8,
+      "status": 1,
+      "cateId": "3"
     }
   ]
 }

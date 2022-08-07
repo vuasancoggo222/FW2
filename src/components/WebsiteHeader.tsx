@@ -7,6 +7,7 @@ import LookUpImage from '../assets/lookup.png'
 import Tracking from '../assets/tracking.png'
 import CartImage from '../assets/cart.png'
 import { Header } from 'antd/lib/layout/layout'
+import { Link, NavLink, useNavigate } from 'react-router-dom'
 type Props = {}
 const HeaderStyle: React.CSSProperties = {
   backgroundColor : '#D70018',
@@ -23,7 +24,22 @@ const InputStyle: React.CSSProperties ={
   borderRadius :" 6px",
   border: 'none'
 }
+const NavLinkStyle : React.CSSProperties = {
+  color : '#ffffff'
+}
 const WebsiteHeader = (props: Props) => {
+  let user = ''
+  if(localStorage.getItem('user')){
+    user = JSON.parse(localStorage.getItem('user') || '')
+  }
+  console.log(user);
+  
+  const navigate = useNavigate()
+  const onLogOut = () =>{
+    localStorage.removeItem('user')
+    navigate('/')
+  }
+  
   return (
     <Header style={HeaderStyle}>
      <Logo src={LogoWebSite}/>
@@ -47,6 +63,8 @@ const WebsiteHeader = (props: Props) => {
             <CartImg src={CartImage}/>
             <CartLink>Giỏ <br /> Hàng</CartLink>
           </Cart>
+          { user ?  <><Auth><NavLink to='' style={NavLinkStyle}>{user.user.name}</NavLink></Auth><Auth><NavLink style={NavLinkStyle} onClick={onLogOut} to='' >Logout</NavLink></Auth></>
+            :<><Auth><NavLink style={NavLinkStyle} to='login'>Đăng nhập</NavLink></Auth><Auth><NavLink style={NavLinkStyle} to='register'>Đăng ký</NavLink></Auth></>}
         </Nav>
     </Header>
   )
@@ -64,7 +82,7 @@ display:block;
 
 `
 const Nav = styled.div`
-padding : 8px 0;
+padding : 4px 0;
 display: flex;
 font-size: 12px;
 font-weight:400;
@@ -111,5 +129,9 @@ margin : 8px 4px;
 `
 const CartLink = styled.a`
 color: #ffff;
+`
+const Auth = styled.div `
+
+margin-left:20px;
 `
 export default WebsiteHeader

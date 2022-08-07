@@ -32,14 +32,6 @@ const ProductAdminPage = () => {
         const dataNew = await getAll();
         setDataTable(dataNew.data)
       }
-    const setStatus = async () =>{
-        try {
-            
-        } catch (error) {
-            console.log(error);
-            
-        }
-    }
     useEffect(() => {        
         const getProducts = async()=>{
             try {
@@ -101,7 +93,7 @@ const ProductAdminPage = () => {
         <>
             <Breadcrumb>
                 <Typography.Title level={2} style={{ margin: 0 }}>
-                    Điện thoại
+                  Sản Phẩm
                 </Typography.Title>
                 <Link to="/admin/create">
                     <Button type="dashed" shape="circle" icon={<PlusOutlined />} />

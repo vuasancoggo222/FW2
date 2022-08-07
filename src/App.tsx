@@ -6,36 +6,42 @@ import WebsiteLayout from "./layouts/WebsiteLayout";
 import styled from "styled-components";
 import { Route, Routes } from "react-router-dom";
 import AdminLayout from "./layouts/AdminLayout";
-import ProductCategory from "./pages/ProductCategory";
+
 import ProductAdd from "./pages/ProductAdd";
 import ProductEdit from "./pages/ProductEdit";
 import { CategoryType } from "./types";
 import { categoryList } from "./api/category";
 import ProductAdmin from "./pages/ProductAdmin";
 import { getAll, read, updateProduct } from "./api/products";
+import ProductCategoryAdminDetail from "./pages/ProductAdminCategoryDetail";
+import CategoryAdmin from "./pages/CategoryAdmin";
+import CategoryEdit from "./pages/CategoryEdit";
+import LoginPage from "./pages/LoginPage";
+import RegisterPage from "./pages/RegisterPage";
+import WebsiteMain from "./components/WebsiteMain";
+import { AdminGuard } from "./guards/AdminGuard";
 function App() {
-  const [categories, setCategories] = useState<CategoryType[]>([]);
+  
   const [products, setProducts] = useState([]);
-  useEffect(() => {
-    const getCategories = async () => {
-      try {
-        const { data } = await categoryList();
-        setCategories(data);
-      } catch (error) {
-        console.log(error);
-      }
-    };
-    getCategories();
-  }, []);
+
   return (
     <Wrapper>
       <Routes>
-        <Route path="/" element={<WebsiteLayout />}></Route>
-        <Route path="admin" element={<AdminLayout/>}>
+        
+        <Route path="/" element={<WebsiteLayout />}>
+          <Route index element={<WebsiteMain/>}></Route>
+          <Route path="category/:id" element={<WebsiteMain/>}/>
+        <Route path="login" element={<LoginPage/>}/>
+          <Route path="register" element={<RegisterPage/>}/>
+        </Route>
+    
+        <Route path="admin" element={<AdminGuard><AdminLayout/></AdminGuard>}>
           <Route index element={<ProductAdmin/>}/>
-          <Route path="category/:id" element={<ProductCategory />} />
+          <Route path="category/:id" element={<ProductCategoryAdminDetail />} />
           <Route path="create" element={<ProductAdd />} />
           <Route path="product/edit/:id" element={<ProductEdit />} />
+          <Route path="category" element={<CategoryAdmin/>}/>
+          <Route path="category/edit/:id" element={<CategoryEdit/>}/>
         </Route>
       </Routes>
     </Wrapper>

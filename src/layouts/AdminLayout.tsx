@@ -1,6 +1,7 @@
 import { PhoneOutlined, LaptopOutlined, TabletFilled, AudioOutlined, SettingOutlined } from '@ant-design/icons';
 import type { MenuProps } from 'antd';
 import { Breadcrumb, Layout, Menu } from 'antd';
+import SubMenu from 'antd/lib/menu/SubMenu';
 import React from 'react';
 import { Link, Outlet } from 'react-router-dom'
 import styled from 'styled-components';
@@ -9,34 +10,41 @@ import LogoImage from '../assets/anhhtus-logo 2.png'
 
 const { Header, Content, Sider } = Layout;
 
-const item3: MenuProps['items'] = [
-  { key: "cellphone", icon: <PhoneOutlined />, label: <Link to="/admin">Điện thoại</Link> },
-  { key: "laptop", icon: <LaptopOutlined />, label: "Laptop" },
-  { key: "tablet", icon: <TabletFilled />, label: "Máy tính bảng" },
-  { key: "audio", icon: <AudioOutlined />, label: "Âm thanh" },
-  {
-    key: "categories", icon: <SettingOutlined />,
-    label: <Link to="/admin/categories">Categories</Link>
-  },
-]
+const navLink : React.CSSProperties = {
+  textAlign : 'center',
+}
 
-const App = () => (
-  <Layout>
+
+
+type Props = {
+
+}
+
+const AdminLayout = (props: Props) => {
+
+  
+  return (
+    <Layout>
     <HeaderCustom>
       <Logo src={LogoImage} />
     </HeaderCustom>
     <Layout>
       <Sider
-        collapsible={true}
+        
         width={200}
         className="site-layout-background">
-        <Menu
+           <Menu
           mode="inline"
           defaultSelectedKeys={['1']}
-          defaultOpenKeys={['sub1']}
           style={{ height: '100%', borderRight: 0 }}
-          items={item3}
-        />
+
+        >
+               <Link style={navLink}  to={`/admin`}><Menu.Item>Tất cả sản phẩm</Menu.Item></Link>
+               <Link style={navLink}  to={`/admin/category`}><Menu.Item>Tất cả danh mục</Menu.Item></Link>
+        </Menu>
+        <Menu>
+      
+        </Menu>
       </Sider>
       <Layout style={{ padding: '0 24px 24px' }}>
         <ContentCustom>
@@ -45,7 +53,9 @@ const App = () => (
       </Layout>
     </Layout>
   </Layout>
-);
+  )
+}
+
 
 const HeaderCustom = styled(Header)`
     background-color: #00B0D7;
@@ -63,4 +73,4 @@ const ContentCustom = styled(Content)`
   min-height: 100vh;
 `
 
-export default App;
+export default AdminLayout;
