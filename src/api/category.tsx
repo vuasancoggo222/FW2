@@ -13,6 +13,7 @@ export const updateCategory = (id:any,category:any) =>{
 }
 
 export const getProductByCate = (id:any) =>{
+    console.log(id);
     const url = `/cates/${id}?_embed=products`
     return instance.get(url)
 }

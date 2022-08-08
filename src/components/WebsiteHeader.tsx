@@ -61,7 +61,7 @@ const WebsiteHeader = (props: Props) => {
         </LookUp>
           <Cart>
             <CartImg src={CartImage}/>
-            <CartLink>Giỏ <br /> Hàng</CartLink>
+            <CartLink><NavLink style={NavLinkStyle} to="/cart">Giỏ <br /> Hàng</NavLink></CartLink>
           </Cart>
           { user ?  <><Auth><NavLink to='' style={NavLinkStyle}>{user.user.name}</NavLink></Auth><Auth><NavLink style={NavLinkStyle} onClick={onLogOut} to='' >Logout</NavLink></Auth></>
             :<><Auth><NavLink style={NavLinkStyle} to='login'>Đăng nhập</NavLink></Auth><Auth><NavLink style={NavLinkStyle} to='register'>Đăng ký</NavLink></Auth></>}

@@ -20,6 +20,8 @@ import LoginPage from "./pages/LoginPage";
 import RegisterPage from "./pages/RegisterPage";
 import WebsiteMain from "./components/WebsiteMain";
 import { AdminGuard } from "./guards/AdminGuard";
+import ProductDetail from "./pages/ProductDetail";
+import CartPage from "./pages/CartPage";
 function App() {
   
   const [products, setProducts] = useState([]);
@@ -31,8 +33,10 @@ function App() {
         <Route path="/" element={<WebsiteLayout />}>
           <Route index element={<WebsiteMain/>}></Route>
           <Route path="category/:id" element={<WebsiteMain/>}/>
+          <Route path="product-detail/:id" element={<ProductDetail/>}/>
         <Route path="login" element={<LoginPage/>}/>
           <Route path="register" element={<RegisterPage/>}/>
+          <Route path="cart" element={<CartPage/>}/>
         </Route>
     
         <Route path="admin" element={<AdminGuard><AdminLayout/></AdminGuard>}>
@@ -42,6 +46,7 @@ function App() {
           <Route path="product/edit/:id" element={<ProductEdit />} />
           <Route path="category" element={<CategoryAdmin/>}/>
           <Route path="category/edit/:id" element={<CategoryEdit/>}/>
+         
         </Route>
       </Routes>
     </Wrapper>
